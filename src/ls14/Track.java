@@ -1,4 +1,4 @@
-package ls6;
+package ls14;
 
 public class Track extends Cars {
     private int wheels;
@@ -15,6 +15,12 @@ public class Track extends Cars {
         System.out.println("Новое значение wheels = " + wheels);
     }
 
+    @Override
+    public String outPut() {
+        System.out.print(super.outPut());
+        return "\n"+ wheels + "\n" + maxWeight;
+
+    }
 }
 
 

@@ -1,4 +1,4 @@
-package ls6;
+package ls14;
 
 public class Cars {
     public int weight;
@@ -7,9 +7,8 @@ public class Cars {
     public float speed;
 
 
-    public void outPut () {
-        System.out.println("Вес " + model + " составляет " + weight + "кг.");
-        System.out.println("Цвет машины - " + color + " и её скорость - " + speed);
+    public String outPut () {
+        return "Вес " + model + " составляет " + weight + "кг." + "Цвет машины - " + color + " и её скорость - " + speed;
     }
 
     public Cars (int weight, String model, char color, float speed) {
