@@ -7,8 +7,11 @@ public class ls6num1 {
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите число: ");
         int num = scan.nextInt();
-        while (num != 0){
-
+        int sum = 0;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
         }
+        System.out.println(sum);
     }
 }
