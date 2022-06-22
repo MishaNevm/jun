@@ -18,6 +18,5 @@ public class Cars {
         this.color = color;
         this.speed = speed;
     }
-    public Cars (){}
 }
 
