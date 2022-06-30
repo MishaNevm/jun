@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65aaed6d-b2e7-4d32-b111-bb6f414860bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Ls19/Ls19.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ls19/Ls19.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ls19/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ls20/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ls19/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ls20/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ls19/Ls19.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ls20/Ls20.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Ls19">
+  <component name="RunManager" selected="Application.Ls20">
     <configuration name="Ls17num8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ls17num8.Ls17num8" />
       <module name="jp1" />
@@ -61,12 +64,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ls19" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ls19.Ls19" />
+    <configuration name="Ls20" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Ls20.Ls20" />
       <module name="jp1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Ls19.*" />
+          <option name="PATTERN" value="Ls20.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,7 +112,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Ls19" />
+        <item itemvalue="Application.Ls20" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Ls17num8" />
         <item itemvalue="Application.Num7" />

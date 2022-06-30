@@ -1,4 +1,4 @@
-package Ls19;
+package Ls20;
 
 public class Dog extends Animal{
     @Override

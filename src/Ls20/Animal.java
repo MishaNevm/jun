@@ -1,6 +1,6 @@
-package Ls19;
+package Ls20;
 
-public class Animal {
+public class Animal implements IOtherAnimal{
     private int id = 0;
     public Animal (){}
 
