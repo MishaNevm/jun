@@ -6,10 +6,9 @@ import java.util.List;
 public class Ls19 {
     public static void main(String[] args) {
         List<Animal> listOfAnimals = new ArrayList<>();
-        listOfAnimals.add(new Animal(1));
-        listOfAnimals.add(new Animal(2));
-
         List<Dog> listOfDogs = new ArrayList<>();
+        listOfAnimals.add(new Animal());
+        listOfAnimals.add(new Animal());
         listOfDogs.add(new Dog());
         listOfDogs.add(new Dog());
         test(listOfAnimals);
@@ -22,3 +21,4 @@ public class Ls19 {
         }
     }
 }
+
