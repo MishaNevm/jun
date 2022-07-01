@@ -1,29 +1,21 @@
 package Ls20;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Ls20 {
-    public static void main(String[] args) {
-        List<Animal> listOfAnimals = new ArrayList<>();
-        List<Dog> listOfDogs = new ArrayList<>();
-        listOfDogs.add(new Dog());
-        listOfDogs.add(new Dog());
-        test(listOfAnimals);
-        test(listOfDogs);
-        IOtherAnimal animal = new IOtherAnimal() {
-            @Override
-            public void eat() {
-                System.out.println("qweqwe");
-            }
-        };
-        animal.eat();
-}
+    public static void main(String[] args) throws FileNotFoundException {
+        String separator = File.separator;
+        String path = separator+"C:"+separator+"Users"+separator+"Админ"+separator+"Desktop"+separator+"Test.txt";
+        File file = new File(path);
 
-    private static void test(List<? extends Animal> list) {
-        for (Animal animal : list) {
-            animal.eat();
+        Scanner scan = new Scanner(file);
+        while (scan.hasNextLine()) {
+            System.out.println(scan.nextLine());
         }
+        scan.close();
     }
 }
 
