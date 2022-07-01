@@ -3,18 +3,20 @@ package Ls20;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ls20 {
     public static void main(String[] args) throws FileNotFoundException {
-        String separator = File.separator;
-        String path = separator+"C:"+separator+"Users"+separator+"Админ"+separator+"Desktop"+separator+"Test.txt";
-        File file = new File(path);
-
+        File file = new File("Test2");
         Scanner scan = new Scanner(file);
-        while (scan.hasNextLine()) {
-            System.out.println(scan.nextLine());
+        String line = scan.nextLine();
+        String[] nums = line.split(" ");
+        int [] res = new int[nums.length];
+        for (int i = 0; i < nums.length; i++){
+            res[i] = Integer.parseInt(nums[i]);
         }
+        System.out.println(Arrays.toString(res));
         scan.close();
     }
 }
