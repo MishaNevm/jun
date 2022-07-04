@@ -7,15 +7,24 @@ public abstract class Animal {
         this.weight = weight;
     }
 
-    public int getWeight() {
+    protected Animal() {
+    }
+
+    protected int getWeight() {
         return weight;
     }
 
-    public int getHeight() {
+    protected int getHeight()
+    {
         return height;
     }
 
-    public void showInfo() {
-        System.out.println(weight + "\n" + height);
+    public abstract void showInfo();
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
+    public void setHeight(int height){
+        this.height = height;
+    }
+
 }
