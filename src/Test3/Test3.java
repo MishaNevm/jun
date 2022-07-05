@@ -12,8 +12,12 @@ public class Test3 {
             }
             PrintWriter pw = new PrintWriter("Test.txt");
             pw.println("File create");
+            pw.close();
             br = new BufferedReader(new FileReader("Test.txt"));
-            String test = br.readLine();
+            String test = null;
+            while ((test = br.readLine()) != null) {
+                System.out.println(test);
+            }
             System.out.println(test);
         } catch (IOException e) {
             System.out.println(e);
