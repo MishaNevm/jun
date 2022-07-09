@@ -9,18 +9,23 @@ public class newCar extends Auto{
     String CarName;
 
     public newCar(String brand, String model) throws IOException {
-        super(brand,model);
+        this.brand = brand;
+        this.model = model;
         CarName = brand + "_" + model + "_" + getId() + ".txt";
         CarFile = new File(CarsDir + "\\" + CarName);
         CarFile.createNewFile();
         pw = new PrintWriter(CarFile);
         setInfo();
+        motor.setMotorInfo();
         pw.println("Бренд: " + brand);
         pw.println("Модель: "+ model);
         pw.println("Цвет: " + color);
         pw.println("Год " + year);
         pw.println("Тип кузова: "+ bodyType);
         pw.println("Коробка передачь: " + transmission);
+        pw.println("Объем двигателя: " + motor.getVolum());
+        pw.println("Количество цилиндров: " + motor.getCylinders());
+        pw.println("Мощноть: " + motor.getPower());
         pw.close();
         System.out.println("Файл " + CarName + " создан");
     }

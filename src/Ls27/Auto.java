@@ -15,12 +15,12 @@ public abstract class Auto {
     protected String bodyType;
     protected String transmission;
     protected File CarsDir;
-    File file;
     PrintWriter pw;
-    public Auto(String brand, String model) {
+    Motor motor;
+    public Auto() {
         id = idStatic;
         idStatic++;
-        Motor motor = new Motor();
+        motor = new Motor();
         CarsDir = new File("Cars");
         CarsDir.mkdir();
     }
@@ -80,11 +80,17 @@ public abstract class Auto {
         private int power;
         private int volum;
 
-        public void setMotorInfo(int cylinders, int power, int volum) {
-            this.cylinders = cylinders;
-            this.power = power;
-            this.volum = volum;
+        public void setMotorInfo() {
+            System.out.println("Введите количество цилиндров в движке: ");
+            cylinders = scan.nextInt();
+            System.out.println("Введите объем двигателя: ");
+            volum = scan.nextInt();
+            System.out.println("Введите мощность: ");
+            power = scan.nextInt();
         }
+        public int getCylinders() {return cylinders;}
+        public int getPower () {return power;}
+        public int getVolum () {return volum;}
 
     }
 }
