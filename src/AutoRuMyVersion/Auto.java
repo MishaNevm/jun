@@ -1,4 +1,4 @@
-package Ls27;
+package AutoRuMyVersion;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -15,14 +15,11 @@ public abstract class Auto {
     protected String bodyType;
     protected String transmission;
     protected File CarsDir;
-    PrintWriter pw;
     Motor motor;
     public Auto() {
         id = idStatic;
         idStatic++;
         motor = new Motor();
-        CarsDir = new File("Cars");
-        CarsDir.mkdir();
     }
 
     public void setInfo() {
