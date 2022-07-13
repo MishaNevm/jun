@@ -3,6 +3,10 @@ package Ls28;
 import java.io.*;
 
 public class Person implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -4859230257365037980L;
+
     public String name;
     public int id;
 
