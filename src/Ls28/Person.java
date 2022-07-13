@@ -21,5 +21,33 @@ public class Person implements Serializable {
     public int getId() {
         return id;
     }
+    public static void outPutPersonInFie(Person person) {
+        File dir = new File("TestDir2");
+        dir.mkdir();
+        String sepor = File.separator;
+        File file = new File(dir + sepor + person.getName() + person.getId() + ".bin");
+        try (
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
+            oos.writeObject(person);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error 201");
+        } catch (IOException e) {
+            System.out.println("Error 202");
+        }
+    }
+    public static Person inPutPersonInFie(String userName, int userId) {
+        File dir = new File("TestDir2");
+        dir.mkdir();
+        String sepor = File.separator;
+        File file = new File(dir + sepor + userName + userId + ".bin");
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            Person person = (Person) ois.readObject();
+            return person;
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println("Error 203");
+            Person pust = new Person();
+            return pust;
+        }
+    }
 }
 
