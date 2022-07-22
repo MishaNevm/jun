@@ -10,6 +10,7 @@ public class DailyCar extends Auto implements Serializable {
     String CarName;
     private static File dailyDir = new File("daylyDir");
     private static String separator = File.separator;
+    private int a = 1;
 
     public DailyCar(String brand, String model) {
         this.brand = brand;

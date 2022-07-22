@@ -9,5 +9,7 @@ public class Main implements Serializable {
         DailyCar toyota = new DailyCar("Toyota", "GT86");
         DailyCar.outputDilyCar(toyota);
         DailyCar toyotaTest = DailyCar.inputDailyCar("Toyota","GT86",1);
+        DailyCar bmwTest = new DailyCar("BMW","m5");
+        DailyCar.outputDilyCar(bmwTest);
     }
 }
