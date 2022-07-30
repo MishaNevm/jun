@@ -1,151 +1,132 @@
 package StepicRobot;
 
+import static StepicRobot.Direction.*;
+
 public class Robot {
-    Direction dr = Direction.UP;
-    int X = 0;
-    int Y = 0;
+    Direction dr;
+    int y;
+    int x;
 
-    public Direction getDirection() {
-        return dr;
-    }
-
-    public int getX() {
-        return X;
+    public Robot() {
+        dr = UP;
+        y = 0;
+        x = 0;
     }
 
     public int getY() {
-        return Y;
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public Direction getDr() {
+        return dr;
     }
 
     public void turnLeft() {
-        System.out.println("Поворот против часовой стрелки на 90 градусов");
-        switch (dr) {
-            case UP -> dr = Direction.LEFT;
-            case DOWN -> dr = Direction.RIGHT;
-            case LEFT -> dr = Direction.DOWN;
-            case RIGHT -> dr = Direction.UP;
-        }
+        if (dr == UP) {
+            dr = LEFT;
+        } else if (dr == LEFT) {
+            dr = DOWN;
+        } else if (dr == DOWN) {
+            dr = RIGHT;
+        } else dr = UP;
     }
 
     public void turnRight() {
-        System.out.println("Поворот по часов стрелке на 90 градусов");
-        switch (dr) {
-            case DOWN -> dr = Direction.LEFT;
-
-            case UP -> dr = Direction.RIGHT;
-
-            case RIGHT -> dr = Direction.DOWN;
-
-            case LEFT -> dr = Direction.UP;
-        }
+        if (dr == UP) {
+            dr = RIGHT;
+        } else if (dr == LEFT) {
+            dr = UP;
+        } else if (dr == DOWN) {
+            dr = LEFT;
+        } else dr = DOWN;
     }
 
     public void stepForward() {
-        switch (dr) {
-            case LEFT -> X--;
-            case RIGHT -> X++;
-            case UP -> Y++;
-            case DOWN -> Y--;
+        if (dr == UP) {
+            y++;
+        } else if (dr == LEFT) {
+            x--;
+        } else if (dr == DOWN) {
+            y--;
+        } else x++;
+    }
+
+    public static void turnToRight(Robot robot) {
+        if (robot.getDr() == UP) {
+            robot.turnRight();
+        } else if (robot.getDr() == DOWN) {
+            robot.turnLeft();
+        } else if (robot.getDr() == LEFT) {
+            while (robot.getDr() != RIGHT) {
+                robot.turnRight();
+            }
         }
     }
+
+    public static void turnToLeft(Robot robot) {
+        if (robot.getDr() == UP) {
+            robot.turnLeft();
+        } else if (robot.getDr() == RIGHT) {
+            while (robot.getDr() != LEFT) {
+                robot.turnLeft();
+            }
+        } else if (robot.getDr() == DOWN) {
+            robot.turnRight();
+        }
+    }
+
+    public static void turnToUP(Robot robot) {
+        if (robot.getDr() == RIGHT) {
+            robot.turnLeft();
+        } else if (robot.getDr() == DOWN) {
+            while (robot.getDr() != UP) {
+                robot.turnLeft();
+            }
+        } else if (robot.getDr() == LEFT) {
+            robot.turnRight();
+        }
+    }
+
+    public static void turnToDown(Robot robot) {
+        if (robot.getDr() == LEFT) {
+            robot.turnLeft();
+        } else if (robot.getDr() == UP) {
+            while (robot.getDr() != DOWN) {
+                robot.turnLeft();
+            }
+        } else if (robot.getDr() == RIGHT) {
+            robot.turnRight();
+        }
+    }
+
 
     public static void moveRobot(Robot robot, int toX, int toY) {
-        if (robot.getX() == toX && robot.getY() == toY) {
-            System.out.println("Уже на месте");
-            return;
-        }
-        moveX(robot, toX);
-        moveY(robot, toY);
-    }
-
-    public static void moveX(Robot robot, int toX) {
-        if (robot.getX() != toX) {
-            if (toX > 0) {
-                if (robot.getDirection() != Direction.RIGHT) {
-                    switch (robot.getDirection()) {
-                        case UP: {
-                            robot.turnRight();
-                            break;
-                        }
-                        case DOWN: {
-                            robot.turnLeft();
-                        }
-                        case LEFT: {
-                            while (robot.getDirection() != Direction.RIGHT)
-                                robot.turnRight();
-                        }
-                    }
-                }
-            } else if (toX < 0) {
-                if (robot.getDirection() != Direction.LEFT) {
-                    switch (robot.getDirection()) {
-                        case UP: {
-                            robot.turnLeft();
-                            break;
-                        }
-                        case DOWN: {
-                            robot.turnRight();
-                        }
-                        case RIGHT: {
-                            while (robot.getDirection() != Direction.LEFT)
-                                robot.turnLeft();
-                        }
-                    }
-                }
-            }
-            if (robot.getX() > toX) {
-                for (int i = robot.getX(); i > toX; i--) {
+        int x = robot.getX();
+        int y = robot.getY();
+        if (x != toX && y != toY) {
+            if (x > toX){
+                turnToLeft(robot);
+                for (;x > toX; x--){
                     robot.stepForward();
                 }
             } else {
-                for (int i = robot.getX(); i < toX; i++) {
+                turnToRight(robot);
+                for (;x < toX;x++){
                     robot.stepForward();
                 }
             }
-        }
-    }
-
-    public static void moveY(Robot robot, int toY) {
-        if (robot.getY() != toY) {
-            if (toY > 0) {
-                if (robot.getDirection() != Direction.UP) {
-                    switch (robot.getDirection()) {
-                        case LEFT: {
-                            robot.turnRight();
-                            break;
-                        }
-                        case RIGHT: {
-                            robot.turnLeft();
-                        }
-                        case DOWN: {
-                            while (robot.getDirection() != Direction.UP)
-                                robot.turnRight();
-                        }
-                    }
-                }
-            } else if (toY < 0) {
-                if (robot.getDirection() != Direction.DOWN) {
-                    switch (robot.getDirection()) {
-                        case RIGHT: {
-                            robot.turnLeft();
-                            break;
-                        }
-                        case LEFT: {
-                            robot.turnRight();
-                        }
-                        case UP: {
-                            while (robot.getDirection() != Direction.LEFT)
-                                robot.turnRight();
-                        }
-                    }
-                }
-            }
-            if (robot.getY() > toY) {
-                for (int i = robot.getY(); i > toY; i--) {
+            if (y > toY){
+                turnToDown(robot);
+                for (; y > toY; y--){
                     robot.stepForward();
                 }
             } else {
-                for (int i = robot.getY(); i < toY; i++) {
+                turnToUP(robot);
+                for (; y < toY; y++){
                     robot.stepForward();
                 }
             }
